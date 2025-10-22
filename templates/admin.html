@@ -15,7 +15,7 @@
           <div class="logo-text">AGE GOLD</div>
           <div class="logo-sub">PAINEL ADMIN</div>
         </div>
-            <img src="{{url_for('static', filename='logo-age')}}" alt="">
+            <img src="{{url_for('static', filename='logo-age.png')}}" alt="">
       </div>
 
       <div class="admin-actions">
@@ -85,7 +85,7 @@
           </article>
 
           <article class="add-card">
-            <a href="nova-noticia.html" class="add-inner" title="Adicionar notícia">
+            <a href="{{url_for('nova_noticia')}}" class="add-inner" title="Adicionar notícia">
               <div class="plus">+</div>
               <div class="add-text">ADICIONAR<br>NOTÍCIA</div>
             </a>
