@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AGE GOLD — Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <div class="wrap">
+    <header class="admin-header">
+      <div class="brand">
+        <div>
+          <div class="logo-text">AGE GOLD</div>
+          <div class="logo-sub">PAINEL ADMIN</div>
+        </div>
+            <img src="{{url_for('static', filename='logo-age')}}" alt="">
+      </div>
+
+      <div class="admin-actions">
+        <a class="btn-ghost" href="index.html">Voltar à Intranet</a>
+        <span class="user-badge">Olá, Equipe</span>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="news-panel">
+        <h2>Últimas notícias</h2>
+
+        <div class="admin-grid">
+          <article class="admin-card">
+            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age1/600/400')"></div>
+            <div class="card-body">
+              <div class="card-title">Dia do Profissional de Consórcio</div>
+              <div class="card-actions">
+                <a class="btn-access" href="#">Acessar</a>
+                <button class="btn-danger">Apagar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age2/600/400')"></div>
+            <div class="card-body">
+              <div class="card-title">Novas diretrizes internas</div>
+              <div class="card-actions">
+                <a class="btn-access" href="#">Acessar</a>
+                <button class="btn-danger">Apagar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age3/600/400')"></div>
+            <div class="card-body">
+              <div class="card-title">Campanha de Vendas — Outubro</div>
+              <div class="card-actions">
+                <a class="btn-access" href="#">Acessar</a>
+                <button class="btn-danger">Apagar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age4/600/400')"></div>
+            <div class="card-body">
+              <div class="card-title">Treinamento: Atendimento</div>
+              <div class="card-actions">
+                <a class="btn-access" href="#">Acessar</a>
+                <button class="btn-danger">Apagar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age5/600/400')"></div>
+            <div class="card-body">
+              <div class="card-title">Comunicado do RH</div>
+              <div class="card-actions">
+                <a class="btn-access" href="#">Acessar</a>
+                <button class="btn-danger">Apagar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="add-card">
+            <a href="nova-noticia.html" class="add-inner" title="Adicionar notícia">
+              <div class="plus">+</div>
+              <div class="add-text">ADICIONAR<br>NOTÍCIA</div>
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+      <aside class="admin-aside">
+        <div class="panel-small temp">
+          <h3>Temperatura</h3>
+          <p>(Guarulhos - <time datetime="2025-10-20">20/10/25</time>)</p>
+          <p class="big">17°C <span aria-hidden="true">☀️</span></p>
+        </div>
+
+        <div class="panel-small">
+          <div class="phrase">"O êxito parece doce<br>a quem não o alcança."</div>
+          <small>Frase do dia</small>
+        </div>
+
+        <div class="panel-small">
+          Última atualização: <strong>Há 15 minutos</strong>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <small>© <strong>AGE GOLD</strong> • Painel Admin</small>
+    </footer>
+  </div>
+</body>
+</html>

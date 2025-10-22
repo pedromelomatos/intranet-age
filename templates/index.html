@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
   <div class="wrap">
@@ -17,7 +17,7 @@
           <div class="logo-text">AGE GOLD</div>
           <div class="logo-sub">INTRANET</div>
         </div>
-        <img src="/static/logo-age.png" alt="">
+        <img src="{{url_for('static', filename='logo-age.png')}}" alt="">
       </div>
       <div style="text-align:right;color:rgba(0,0,0,0.5)">
         <div style="font-weight:700">Olá, Equipe</div>
