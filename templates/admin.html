@@ -29,67 +29,21 @@
         <h2>Últimas notícias</h2>
 
         <div class="admin-grid">
+         { % for noticia in noticias % }
           <article class="admin-card">
-            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age1/600/400')"></div>
-            <div class="card-body">
-              <div class="card-title">Dia do Profissional de Consórcio</div>
-              <div class="card-actions">
-                <a class="btn-access" href="#">Acessar</a>
-                <button class="btn-danger">Apagar</button>
-              </div>
+            <div class="card-img">
+              <img src="data:image/png;base64,{{ noticia.capa|b64encode}}">
             </div>
-          </article>
-
-          <article class="admin-card">
-            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age2/600/400')"></div>
             <div class="card-body">
-              <div class="card-title">Novas diretrizes internas</div>
+              <div class="card-title">{{ noticia.titulo }}</div>
               <div class="card-actions">
-                <a class="btn-access" href="#">Acessar</a>
-                <button class="btn-danger">Apagar</button>
+                <a class="btn-access" href="{{ noticia.link }}" target="_blank">Acessar</a>
+                <form action="{{url_for('deletar_noticia')}}" method="POST">
+                  <input type="hidden" name="id" value="{{ noticia.id }}">
+                  <button type="submit" class="btn-danger">Apagar</button>
+                </form>
               </div>
-            </div>
-          </article>
-
-          <article class="admin-card">
-            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age3/600/400')"></div>
-            <div class="card-body">
-              <div class="card-title">Campanha de Vendas — Outubro</div>
-              <div class="card-actions">
-                <a class="btn-access" href="#">Acessar</a>
-                <button class="btn-danger">Apagar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="admin-card">
-            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age4/600/400')"></div>
-            <div class="card-body">
-              <div class="card-title">Treinamento: Atendimento</div>
-              <div class="card-actions">
-                <a class="btn-access" href="#">Acessar</a>
-                <button class="btn-danger">Apagar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="admin-card">
-            <div class="card-img" style="background-image:url('https://picsum.photos/seed/age5/600/400')"></div>
-            <div class="card-body">
-              <div class="card-title">Comunicado do RH</div>
-              <div class="card-actions">
-                <a class="btn-access" href="#">Acessar</a>
-                <button class="btn-danger">Apagar</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="add-card">
-            <a href="{{url_for('nova_noticia')}}" class="add-inner" title="Adicionar notícia">
-              <div class="plus">+</div>
-              <div class="add-text">ADICIONAR<br>NOTÍCIA</div>
-            </a>
-          </article>
+              {{ % endfor %}}
 
         </div>
       </section>
