@@ -21,18 +21,18 @@
     <main>
       <section class="news-panel centered" >
         <h2>Adicionar Nova Notícia</h2>
-        <form class="form-news">
+        <form class="form-news" method="post">
           <label for="titulo">Título</label>
-          <input type="text" id="titulo" placeholder="Digite o título da notícia">
+          <input type="text" id="titulo" name="tituloForm" placeholder="Digite o título da notícia">
 
           <label for="link">Link para redirecionamento</label>
-          <input type="url" id="link" placeholder="https://exemplo.com">
+          <input type="url" id="link" name="urlForm" placeholder="https://exemplo.com">
 
           <label for="imagem">Imagem de capa</label>
-          <input type="file" id="imagem">
+          <input type="file" id="imagem" name="imgForm">
 
           <div class="form-actions">
-            <a href="admin.html" class="btn-cancelar">Cancelar</a>
+            <a href="{{url_for('admin')}}" class="btn-cancelar">Cancelar</a>
             <button type="submit" class="btn-access">Salvar</button>
           </div>
         </form>

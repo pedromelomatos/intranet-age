@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from db import db
 from models import Noticia
 
@@ -20,6 +20,12 @@ def admin():
 def nova_noticia():
     if request.method == 'GET':
         return render_template("nova-noticia.html")
+    else:
+        titulo = request.form['tituloForm']
+        capa = request.form['imgForm']
+        link = request.form['urlForm']
+
+        return redirect('admin')
         
 if __name__ == '__main__':
     with app.app_context():
