@@ -19,7 +19,7 @@
       </div>
 
       <div class="admin-actions">
-        <a class="btn-ghost" href="index.html">Voltar à Intranet</a>
+        <a class="btn-ghost" href="{{url_for('home')}}">Voltar à Intranet</a>
         <span class="user-badge">Olá, Equipe</span>
       </div>
     </header>
@@ -29,7 +29,7 @@
         <h2>Últimas notícias</h2>
 
         <div class="admin-grid">
-         { % for noticia in noticias % }
+         {% for noticia in noticias %}
           <article class="admin-card">
             <div class="card-img">
               <img src="data:image/png;base64,{{ noticia.capa|b64encode}}">
@@ -43,7 +43,16 @@
                   <button type="submit" class="btn-danger">Apagar</button>
                 </form>
               </div>
-              {{ % endfor %}}
+            </div>
+            </article>
+            {% endfor %}
+            <article class="add-card">
+              <a href="nova-noticia.html" class="add-inner" title="Adicionar notícia">
+              <a href="{{url_for('nova_noticia')}}" class="add-inner" title="Adicionar notícia">
+              <div class="plus">+</div>
+              <div class="add-text">ADICIONAR<br>NOTÍCIA</div>
+            </a>
+          </article>
 
         </div>
       </section>

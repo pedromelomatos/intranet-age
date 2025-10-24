@@ -1,6 +1,6 @@
 import sqlite3
 import base64
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from db import db
 from models import Noticia
 
@@ -12,8 +12,6 @@ db.init_app(app)
 @app.route("/")
 def home():
     noticias = Noticia.query.all() #pegando todas as rows do nosso banco
-    for noticia in noticias:
-        print(f"Título: {noticia.titulo}")
     return render_template("index.html", noticias=noticias)
     
 
@@ -44,6 +42,10 @@ def b64encode_filter(data):
 @app.route("/delete", methods=['POST'])
 def deletar_noticia():
     noticia_id = request.form['id']
+    noticia = Noticia.query.get(noticia_id) #selecionando a noticia especifica que a gente escolheu pra excluir
+    db.session.delete(noticia)
+    db.session.commit()
+    return redirect(url_for('admin'))
     
 
 
