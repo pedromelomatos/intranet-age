@@ -45,19 +45,45 @@
         </div>
       </section>
 
-      <aside>
-        <div class="panel-small temp" role="complementary" aria-labelledby="tempTitle">
-          <h3 id="tempTitle">Temperatura</h3>
-          <p>(Guarulhos - {{ hoje }})</p>
-          <p style="font-weight:700;margin-top:8px;">{{ clima }}º <span aria-hidden="true">☀️</span></p>
-        </div>
+<aside>
+    <div class="panel-small temp" role="complementary" aria-labelledby="tempTitle">
+      <h3 id="tempTitle">Temperatura</h3>
+      <p>(Guarulhos - {{ hoje }})</p>
+      <p style="font-weight:700;margin-top:8px;">{{ clima }}º <span aria-hidden="true">☀️</span></p>
+    </div>
 
-        <div class="panel-small" role="note">
-          <div class="phrase">"{{ frase_do_dia }}"</div>
-          <small>Frase do dia</small>
-        </div>
+    <div class="panel-small" role="note">
+      <div class="phrase">"{{ frase_do_dia }}"</div>
+      <small>Frase do dia</small>
+    </div>
 
-      </aside>
+    <section class="news-ticker" aria-label="Últimas notícias">
+      <div class="ticker-wrap" role="region" aria-live="polite">
+        <h3 id="tempTitle">Notícias do dia</h3>
+        <div class="ticker">
+          
+          {% for n in noticias_gerais %}
+          <a class="ticker-item" href="{{ n.link }}" target="_blank" rel="noopener noreferrer">
+            {% if n.imagem %}
+              <img src="{{ n.imagem }}" alt="">
+            {% endif %}
+            {{ n.titulo }}
+          </a>
+          {% endfor %}
+          
+          {% for n in noticias_gerais %}
+          <a class="ticker-item" href="{{ n.link }}" target="_blank" rel="noopener noreferrer">
+            {% if n.imagem %}
+              <img src="{{ n.imagem }}" alt="">
+            {% endif %}
+            {{ n.titulo }}
+          </a>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+</aside>
 
     </main>
 

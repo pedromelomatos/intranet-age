@@ -2,6 +2,8 @@ import base64
 import os
 import requests
 import random
+import time
+import feedparser
 from dotenv import load_dotenv
 from datetime import date
 from flask import Flask, render_template, request, redirect, url_for
@@ -13,6 +15,60 @@ load_dotenv()
 app =  Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dados.db'
 db.init_app(app)
+
+def buscar_noticias_dos_feeds():
+
+    FEEDS_RSS = [
+        "https://rss.home.uol.com.br/index.xml",
+    ]
+    TEMPO_CACHE = 60 * 5 #tempo até a próxima atualização de notícias
+
+    #se a função não tiver cache criado, ela criará:
+    if not hasattr(buscar_noticias_dos_feeds, "_cache"):
+        buscar_noticias_dos_feeds._cache = {"itens": [], "timestamp": 0}
+
+
+    agora = time.time()
+    cache = buscar_noticias_dos_feeds._cache
+
+    #se não deu o tempo de reiniciar o cache, só retorna as notícias
+    if agora - cache["timestamp"] < TEMPO_CACHE and cache["itens"]:
+        return cache["itens"]
+
+    itens = []
+
+    for url in FEEDS_RSS:
+        feed = feedparser.parse(url) #interpretando as noticias no xml com feedparser
+        for entrada in feed.entries[:16]:
+            titulo_noticia = entrada.get("description")
+            imagem_url = None
+                
+            #procurando uma imagem na notícia:
+            if hasattr(entrada, 'media_content') and entrada.media_content:
+                for media in entrada.media_content:
+                    if media.get('url') and media.get('type', '').startswith('image'):
+                        imagem_url = media['url']
+                        break
+                
+                #tentando pegar a thumbnail se não achar img
+            if not imagem_url and entrada.get('media_thumbnail') and entrada.media_thumbnail[0].get('url'):
+                imagem_url = entrada.media_thumbnail[0]['url']
+                
+            #se não houver, afinal, pegando um placeholder na nossa static
+            if not imagem_url:
+                imagem_url = '/static/placeholder-news.png' 
+                
+            #salvando todas um dicionário com as infos na nossa lista
+            itens.append({
+                "titulo": titulo_noticia,
+                "link": entrada.get("link", "#"),
+                "publicado": entrada.get("published", ""),
+                "imagem": imagem_url  
+            })
+    #jogando essas novas infos no cache
+    buscar_noticias_dos_feeds._cache["itens"] = itens
+    buscar_noticias_dos_feeds._cache["timestamp"] = agora
+    return itens
 
 def dia_de_hoje():
     data_crua = date.today()
@@ -89,10 +145,11 @@ def gerador_de_frase():
 @app.route("/")
 def home():
     noticias = Noticia.query.all() #pegando todas as rows do nosso banco
+    noticias_gerais = buscar_noticias_dos_feeds()
     clima_guarulhos = clima_hoje()
     hoje = dia_de_hoje()
     frase_do_dia = gerador_de_frase()
-    return render_template("index.html", noticias=noticias, clima=clima_guarulhos, hoje=hoje, frase_do_dia=frase_do_dia)
+    return render_template("index.html", noticias=noticias, clima=clima_guarulhos, hoje=hoje, frase_do_dia=frase_do_dia, noticias_gerais=noticias_gerais)
     
 
 @app.route("/admin")
