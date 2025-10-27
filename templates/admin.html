@@ -30,7 +30,7 @@
 
         <div class="admin-grid">
          {% for noticia in noticias %}
-          <article class="admin-card">
+          <article class="card-admin">
             <div class="card-img">
               <img src="data:image/png;base64,{{ noticia.capa|b64encode}}">
             </div>
@@ -61,7 +61,7 @@
         <div class="panel-small temp">
           <h3>Temperatura</h3>
           <p>(Guarulhos - >{{ hoje }})</p>
-          <p class="big">{{clima}} <span aria-hidden="true">☀️</span></p>
+          <p class="big">{{clima}}º <span aria-hidden="true">☀️</span></p>
         </div>
 
         <div class="panel-small">
