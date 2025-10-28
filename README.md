@@ -105,15 +105,5 @@ intranet-age/
 
 ---
 
-## 💡 Aprendizados
-
-Esse projeto me ajudou a:
-- Praticar **CRUD completo com Flask**
-- Integrar **APIs externas**
-- Trabalhar com **banco de dados relacional**
-- Melhorar a **organização e responsividade da interface**
-
----
-
 ✉️ *Desenvolvido por [Pedro Henrique Melo Matos](https://github.com/pedromelomatos)*  
 #Python #Flask #DesenvolvimentoWeb #Backend #Projetos #Programação
