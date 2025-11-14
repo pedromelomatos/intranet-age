@@ -168,8 +168,12 @@ def nova_noticia():
         titulo = request.form['tituloForm']
         capa = request.files['imgForm'].read()
         link = request.form['urlForm']
-
-        noticia = Noticia(titulo=titulo, capa=capa, link=link)
+        texto = request.form['textoForm']
+        tipo_noticia = request.form.get("tipoForm")
+        if tipo_noticia == 'interna':    
+            noticia = Noticia(titulo=titulo, capa=capa, texto_interno=texto, tipo_noticia='interna')
+        else:
+           noticia = Noticia(titulo=titulo, capa=capa, link=link, tipo_noticia='externa') 
         db.session.add(noticia)
         db.session.commit()
         print("Dados inseridos no banco!")
