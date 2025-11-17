@@ -35,10 +35,10 @@
             <option value="interna">Interna</option>
           </select>
 
-          <label for="link">Link para redirecionamento</label>
+          <label for="link">Link para redirecionamento (se for externa)</label>
           <input type="url" id="link" name="urlForm" placeholder="https://exemplo.com">
 
-          <label for="texto">Texto</label>
+          <label for="texto">Texto (se for interna)</label>
           <input type="text" name="textoForm" id="texto">
           <div class="form-actions">
             <a href="{{url_for('admin')}}" class="btn-cancelar">Cancelar</a>
