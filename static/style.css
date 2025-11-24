@@ -590,6 +590,8 @@ footer{
   line-height: 1.45;
   margin: 0 0 8px 0;
   font-size: 14px;
+  white-space: pre-wrap;
+
 }
 
 
