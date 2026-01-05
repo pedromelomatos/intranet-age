@@ -1,6 +1,6 @@
 # 🏢 Intranet AGE
 
-Uma intranet interna desenvolvida com **Python (Flask)**, **HTML**, **CSS** e **SQLite**, com foco em praticar CRUD, integração com APIs e organização de conteúdo corporativo.
+Uma intranet interna desenvolvida com **Python (Flask)**, **HTML**, **CSS** e **SQLite** para centralizar notícias internas, comunicados e informações relevantes da empresa, integração com APIs e organização de conteúdo corporativo.
 
 ---
 
