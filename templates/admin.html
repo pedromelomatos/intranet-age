@@ -42,6 +42,7 @@
                   <input type="hidden" name="id" value="{{ noticia.id }}">
                   <button type="submit" class="btn-danger">Apagar</button>
                 </form>
+                <a class="btn-update" href="{{ url_for('atualizar_noticia', noticia_id=noticia.id) }}">Atualizar</a>
               </div>
             </div>
             </article>

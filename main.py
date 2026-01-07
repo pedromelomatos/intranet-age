@@ -191,7 +191,10 @@ def deletar_noticia():
     db.session.commit()
     return redirect(url_for('admin'))
     
-
+@app.route("/update", methods=['GET', 'POST'])
+def atualizar_noticia():
+    if request.method == 'GET':
+        return render_template('atualizar-noticia.html')
 
        
 if __name__ == '__main__':

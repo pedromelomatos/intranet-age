@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atualizar Notícia</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body class="nova-noticia">
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="{{url_for('static', filename='logo-age.png')}}" alt="Logo">
+        <div>
+          <div class="logo-text">Intranet</div>
+          <div class="logo-sub">Atualizar Notícia</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="news-panel centered" >
+        <h2>Atualizar Notícia Existente</h2>
+        <form class="form-news" method="post" enctype="multipart/form-data">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="tituloForm" placeholder="Digite o título da notícia">
+
+          <label for="imagem">Imagem de capa</label>
+          <input type="file" id="imagem" name="imgForm">
+
+          <label for="tipo">Tipo de notícia</label>
+          <select name="tipoForm" id="tipo">
+            <option value="placeholder" disabled selected>Selecione o tipo:</option>
+            <option value="externa">Externa</option>
+            <option value="interna">Interna</option>
+          </select>
+
+          <label for="link">Link para redirecionamento (se for externa)</label>
+          <input type="url" id="link" name="urlForm" placeholder="https://exemplo.com">
+
+          <label for="texto">Texto (se for interna)</label>
+          <textarea name="textoForm" id="texto"></textarea>
+          <div class="form-actions">
+            <a href="{{url_for('admin')}}" class="btn-cancelar">Cancelar</a>
+            <button type="submit" class="btn-access">Salvar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Intranet — Todos os direitos reservados.
+    </footer>
+  </div>
+</body>
+</html>
