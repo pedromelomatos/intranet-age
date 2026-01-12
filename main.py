@@ -191,10 +191,19 @@ def deletar_noticia():
     db.session.commit()
     return redirect(url_for('admin'))
     
-@app.route("/update", methods=['GET', 'POST'])
-def atualizar_noticia():
+@app.route("/update/<int:noticia_id>", methods=['GET', 'POST'])
+def atualizar_noticia(noticia_id):
     if request.method == 'GET':
         return render_template('atualizar-noticia.html')
+    else:
+        noticia = Noticia.query.get(noticia_id)
+        noticia.titulo = request.form['tituloForm']
+        noticia.capa = request.files['imgForm'].read()
+        noticia.link = request.form['urlForm']
+        noticia.texto_interno = request.form['textoForm']
+        noticia.tipo_noticia = request.form.get("tipoForm")
+        db.session.commit()
+        return redirect(url_for('admin'))
 
        
 if __name__ == '__main__':
