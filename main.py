@@ -6,7 +6,7 @@ import time
 import feedparser
 from dotenv import load_dotenv
 from datetime import date
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from db import db
 from models import Noticia
 
@@ -152,8 +152,28 @@ def home():
     return render_template("index.html", noticias=noticias, clima=clima_guarulhos, hoje=hoje, frase_do_dia=frase_do_dia, noticias_gerais=noticias_gerais)
     
 
-@app.route("/admin")
+@app.route("/admin", methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template("login.html")
+    else:
+        usuario_input = request.form['username']
+        senha_input = request.form['password']
+        usuario = os.getenv("ADMIN_USER")
+        senha = os.getenv("ADMIN_SENHA")
+        if usuario_input == usuario and senha_input == senha:
+            session["user"] = usuario_input
+            return redirect("pagina_admin")
+        else:
+            return redirect("admin")
+        
+    
+
+
+@app.route("/pagina_admin")
 def admin():
+    if session.get("user") == None: #se não tiver logado ainda na sessão
+        return redirect("admin")
     noticias = Noticia.query.all()
     clima_guarulhos = clima_hoje()
     hoje = dia_de_hoje()

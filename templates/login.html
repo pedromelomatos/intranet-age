@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Entrar — AGE GOLD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <header style="margin-bottom:18px;">
+      <div class="brand" style="gap:12px;">
+        <img src="{{ url_for('static', filename='logo-age.png') }}" alt="Logo" style="width:48px;height:48px">
+        <div>
+          <div class="logo-text" style="font-size:20px">AGE GOLD</div>
+          <div class="logo-sub">Painel — Login</div>
+        </div>
+      </div>
+    </header>
+
+    <main style="display:grid;place-items:center;min-height:60vh;">
+      <section class="news-panel centered" style="max-width:420px;padding:24px;">
+        <h2 style="margin-top:0;margin-bottom:12px;">Acesse o Painel</h2>
+        <form method="post" action="{{ url_for('login') }}" class="form-news" style="gap:10px;">
+          <label for="username">Usuário</label>
+          <input id="username" name="username" type="text" autocomplete="username" required placeholder="Seu usuário">
+
+          <label for="password">Senha</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="********">
+
+          <div class="form-actions" style="justify-content:flex-end;margin-top:8px;">
+            <a href="{{ url_for('home') }}" class="btn-cancelar">Voltar</a>
+            <button type="submit" class="btn-access">Entrar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer style="text-align:center;margin-top:14px;color:var(--muted);font-size:13px;">
+      © AGE GOLD
+    </footer>
+  </div>
+</body>
+</html>
