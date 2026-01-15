@@ -14,6 +14,7 @@ load_dotenv()
 
 app =  Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dados.db'
+app.secret_key = os.getenv("SECRET_KEY")
 db.init_app(app)
 
 def buscar_noticias_dos_feeds():
