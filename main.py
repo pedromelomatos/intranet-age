@@ -42,6 +42,8 @@ def buscar_noticias_dos_feeds():
         feed = feedparser.parse(url) #interpretando as noticias no xml com feedparser
         for entrada in feed.entries[:16]:
             titulo_noticia = entrada.get("description")
+            if titulo_noticia is None:
+                titulo_noticia = "Noticia em destaque"
             imagem_url = None
                 
             #procurando uma imagem na notícia:
