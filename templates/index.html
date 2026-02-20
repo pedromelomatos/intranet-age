@@ -72,30 +72,10 @@
       <small>Frase do dia</small>
     </div>
 
-    <section class="news-ticker" aria-label="Últimas notícias">
+    <section class="week-events" aria-label="Eventos da semana">
       <div class="ticker-wrap" role="region" aria-live="polite">
-        <h3 id="tempTitle">Notícias do dia</h3>
-        <div class="ticker">
-          
-          {% for n in noticias_gerais %}
-          <a class="ticker-item" href="{{ n.link }}" target="_blank" rel="noopener noreferrer">
-            {% if n.imagem %}
-              <img src="{{ n.imagem }}" alt="">
-            {% endif %}
-            {{ n.titulo }}
-          </a>
-          {% endfor %}
-          
-          {% for n in noticias_gerais %}
-          <a class="ticker-item" href="{{ n.link }}" target="_blank" rel="noopener noreferrer">
-            {% if n.imagem %}
-              <img src="{{ n.imagem }}" alt="">
-            {% endif %}
-            {{ n.titulo }}
-          </a>
-          {% endfor %}
-
-        </div>
+        <h3 id="tempTitle">Eventos da semana</h3>
+        <img src="../static/placeholder-news.png" alt="">
       </div>
     </section>
 </aside>

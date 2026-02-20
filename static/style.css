@@ -188,10 +188,20 @@ main{
   color:var(--text);
 }
 
+.inputtexto, .inputlink{
+  flex-direction: column;
+  display: flex;
+}
 .cards{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:14px;
+}
+
+
+.inputtexto, .inputlink{
+  flex-direction: column;
+  display: flex;
 }
 
 @media (max-width:900px){
@@ -415,7 +425,7 @@ aside{
   font-weight:800;
 }
 
-.news-ticker { 
+.week-events { 
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
   border: 1px solid var(--glass-border);
   border-radius: 12px;

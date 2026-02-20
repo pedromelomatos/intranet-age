@@ -30,17 +30,20 @@
           <input type="file" id="imagem" name="imgForm">
 
           <label for="tipo">Tipo de notícia</label>
-          <select name="tipoForm" id="tipo">
+          <select name="tipoForm" id="tipo" onchange="escondeInput()">
             <option value="placeholder" disabled selected>Selecione o tipo:</option>
             <option value="externa">Externa</option>
             <option value="interna">Interna</option>
+            <option value="evento">Evento</option>
           </select>
-
-          <label for="link">Link para redirecionamento (se for externa)</label>
-          <input type="url" id="link" name="urlForm" placeholder="https://exemplo.com">
-
-          <label for="texto">Texto (se for interna)</label>
-          <textarea name="textoForm" id="texto"></textarea>
+          <div class="inputlink">
+            <label for="link">Link para redirecionamento (se for externa)</label>
+            <input type="url" id="link" name="urlForm" placeholder="https://exemplo.com">
+          </div>
+          <div class="inputtexto">
+            <label for="texto">Texto (se for interna)</label>
+            <textarea name="textoForm" id="texto"></textarea>
+          </div>
           <div class="form-actions">
             <a href="{{url_for('admin')}}" class="btn-cancelar">Cancelar</a>
             <button type="submit" class="btn-access">Salvar</button>
@@ -54,4 +57,5 @@
     </footer>
   </div>
 </body>
+<script src="../static/input.js"></script>
 </html>
