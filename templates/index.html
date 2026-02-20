@@ -30,33 +30,34 @@
         <h2 id="newsTitle">Últimas notícias</h2>
         <div class="cards">
           {% for noticia in noticias %}
-          <article class="admin-card">
-            <div class="card-img">
-              <img src="data:image/png;base64,{{ noticia.capa|b64encode}}">
-            </div>
-            <div class="card-body">
-              <div class="card-title" >{{ noticia.titulo }}</div>
-              <div class="card-actions">
-                {% if noticia.texto_interno %}
-                   <a class="btn-access" href="#modal-{{ noticia.id }}">Acessar</a>
-                {% else %}
-                  <a class="btn-access" href="{{ noticia.link }}" target="_blank">Acessar</a>
-                {% endif %}
-              </div>
-            </div>
-          </article>
-          {% if noticia.texto_interno %}
-            <div id="modal-{{ noticia.id }}" class="modal">
-              <div class="modal-content">
-                <span class="close" onclick="window.location.hash='';">&times;</span>
-                <h3>{{ noticia.titulo }}</h3>
-                <img src="data:image/png;base64,{{ noticia.capa|b64encode }}" alt="">
-                <p>{{ noticia.texto_interno }}</p>
-              </div>
-            </div>
+            {% if noticia.tipo_noticia != "evento" %}
+              <article class="admin-card">
+                <div class="card-img">
+                  <img src="data:image/png;base64,{{ noticia.capa|b64encode}}">
+                </div>
+                <div class="card-body">
+                  <div class="card-title" >{{ noticia.titulo }}</div>
+                  <div class="card-actions">
+                    {% if noticia.texto_interno %}
+                      <a class="btn-access" href="#modal-{{ noticia.id }}">Acessar</a>
+                    {% else %}
+                      <a class="btn-access" href="{{ noticia.link }}" target="_blank">Acessar</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </article>
+              {% if noticia.texto_interno %}
+                <div id="modal-{{ noticia.id }}" class="modal">
+                  <div class="modal-content">
+                    <span class="close" onclick="window.location.hash='';">&times;</span>
+                    <h3>{{ noticia.titulo }}</h3>
+                    <img src="data:image/png;base64,{{ noticia.capa|b64encode }}" alt="">
+                    <p>{{ noticia.texto_interno }}</p>
+                  </div>
+                </div>
+              {% endif %}
             {% endif %}
           {% endfor %}
-
         </div>
       </section>
 
@@ -75,7 +76,11 @@
     <section class="week-events" aria-label="Eventos da semana">
       <div class="ticker-wrap" role="region" aria-live="polite">
         <h3 id="tempTitle">Eventos da semana</h3>
-        <img src="../static/placeholder-news.png" alt="">
+        {% for noticia in noticias %}
+          {% if noticia.tipo_noticia == 'evento' %}
+            <img src="data:image/png;base64,{{ noticia.capa|b64encode }}" alt="">
+          {% endif %}
+        {% endfor %}
       </div>
     </section>
 </aside>
