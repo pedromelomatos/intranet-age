@@ -1,109 +1,51 @@
 # 🏢 Intranet AGE
 
-Uma intranet interna desenvolvida com **Python (Flask)**, **HTML**, **CSS** e **SQLite** para centralizar notícias internas, comunicados e informações relevantes da empresa, integração com APIs e organização de conteúdo corporativo.
+A **Intranet AGE** é uma aplicação web desenvolvida para centralizar **notícias internas**, **comunicados corporativos** e **informações relevantes** da empresa em um único ambiente, de forma simples, rápida e organizada.
+
+O sistema foi desenvolvido com **Python (Flask)** no backend, **HTML/CSS** no frontend e **SQLite** como banco de dados, além de integrações com **APIs externas** e **feeds RSS**.
+
+🔗 **Acesse a aplicação online:**  
+👉 https://agegold.pythonanywhere.com/
 
 ---
 
 ## 🚀 Funcionalidades
 
-- 📰 **Gerenciamento de notícias internas**  
-  Adicione, liste e apague notícias com título, link e imagem de capa.  
-
-- 🌤️ **Clima em tempo real**  
-  Exibe a temperatura atual da cidade, utilizando uma API de clima.  
-
-- 💬 **Frases motivacionais automáticas**  
-  A cada acesso à página inicial, uma nova frase motivacional é exibida.  
-
-- 🖼️ **Upload de imagens**  
-  Cada notícia pode ter uma imagem personalizada.  
-
-- 💾 **Banco de dados SQLite**  
-  Todas as informações são salvas localmente de forma segura e eficiente.  
+- 📰 Gerenciamento de notícias internas  
+- 🌍 Notícias externas via RSS  
+- 🌤️ Clima em tempo real  
+- 💬 Frases motivacionais automáticas  
+- 🖼️ Upload de imagens  
+- 🔐 Área administrativa protegida  
+- 💾 Banco de dados SQLite  
 
 ---
 
 ## 🧠 Tecnologias Utilizadas
 
-- **Python (Flask)** — Backend e gerenciamento de rotas  
-- **HTML5 & CSS3** — Estrutura e estilo da interface  
-- **SQLite** — Banco de dados leve e integrado  
-- **Feedparser** — Coleta de notícias externas via RSS  
-- **APIs externas** — Clima e frases motivacionais
+- Python (Flask)  
+- HTML5 & CSS3  
+- SQLite  
+- Feedparser  
+- APIs externas  
+- PythonAnywhere  
 
 ---
 
-## ⚙️ Como Executar o Projeto
+## ⚙️ Como Executar o Projeto Localmente
 
-1. **Clone o repositório**
-   ```bash
-   git clone https://github.com/pedromelomatos/intranet-age.git
-   ```
-
-2. **Entre na pasta do projeto**
-   ```bash
-   cd intranet-age
-   ```
-
-3. **Crie e ative um ambiente virtual (opcional, mas recomendado)**
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate   # Windows
-   source venv/bin/activate  # Linux/Mac
-   ```
-
-4. **Instale as dependências**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Execute o servidor Flask**
-   ```bash
-   python main.py
-   ```
-
-6. **Acesse no navegador**
-   ```
-   http://127.0.0.1:5000
-   ```
-
----
-
-## 📸 Capturas de Tela 
-
-### 🏠 Página Inicial  
-![Página inicial da Intranet](static/intranet.png)
-
-### 🛠️ Painel Administrativo  
-![Painel admin da Intranet](static/intranet-admin.png)
-
----
-
-## 📂 Estrutura do Projeto
-
-```
-intranet-age/
-│
-├── static/
-│   ├── style.css
-│   ├── logo-age.png
-│   ├── placeholder-news.png
-│   └── ...
-│
-├── templates/
-│   ├── index.html
-│   ├── admin.html
-│   ├── nova-noticia.html
-│   └── ...
-│
-├── main.py
-├── requirements.txt
-├── db.py
-├── models.py
-└── README.md
+```bash
+git clone https://github.com/pedromelomatos/intranet-age.git
+cd intranet-age
+pip install -r requirements.txt
+python main.py
 ```
 
+Acesse: http://127.0.0.1:5000
+
 ---
 
-✉️ *Desenvolvido por [Pedro Henrique Melo Matos](https://github.com/pedromelomatos)*  
-#Python #Flask #DesenvolvimentoWeb #Backend #Projetos #Programação
+## ✍️ Autor
+
+Pedro Henrique Melo Matos  
+https://github.com/pedromelomatos
